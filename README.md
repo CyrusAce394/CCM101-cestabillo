@@ -1,11 +1,35 @@
-# CCM101-cestabillo
 # CCM101 - Cloud Computing Portfolio
 
-Welcome to my Cloud Computing Portfolio!
+Welcome to my Cloud Computing Portfolio! This repository documents my hands-on experience, technical activities, and cloud infrastructure projects completed throughout the course.
+
+---
 
 ## Student Profile
+
 - **Name**: Cyrus Ace L. Estabillo
 - **Course**: CCM101 - Cloud Computing
+- **Role**: Junior Cloud Infrastructure Engineer Trainee
+
+---
 
 ## Repository Purpose
-So this repository serves as my official portfolio for CCM101. It contains all laboratory activities, scripts, technical documentation, and screenshots completed throughout the course.
+
+This repository serves as the official academic portfolio for **CCM101: Cloud Computing**. It stores all laboratory activities, technical documentation, command-line scripts, and system records completed during the term.
+
+---
+
+## Portfolio Structure
+
+CCM101-cestabillo/
+├── README.md
+└── Laboratory-01-Welcome-to-the-Cloud/
+    ├── README.md
+    ├── about-me.md
+    ├── reflection.md
+    ├── system-information.md
+    └── screenshots/
+        ├── checkpoint-1.png
+        ├── checkpoint-2.png
+        ├── checkpoint-3.png
+        ├── checkpoint-4.png
+        └── checkpoint-5.png
