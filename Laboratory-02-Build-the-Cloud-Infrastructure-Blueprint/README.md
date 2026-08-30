@@ -50,5 +50,5 @@ This laboratory activity simulates the initial planning and assessment phase of 
 * Structuring clean, professional Markdown files for engineering documentation.
 
 ### Challenges Encountered
-* **Challenge:** Remembering specific flags for Linux system inspection commands (e.g., `-h` for human-readable output in `df` and `free`).
-* **Resolution:** Referred to command `man` pages and help flags to format outputs effectively.
+* **Challenge:** Slow internet connection because I'm using only using a mobile data connection, so that the killercoda automatically back to zero again.
+* **Resolution:** Find a satable internet connection.
