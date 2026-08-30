@@ -45,7 +45,7 @@ This laboratory activity simulates the initial planning and assessment phase of 
 
 Below is the simple cloud infrastructure blueprint designed for this mission:
 
-![Cloud Architecture Blueprint](./screenshots/checkpoint5/cloud-architecture.png)
+![Cloud Architecture Blueprint](./screenshots/checkpoint5/cloud-architecture.png.png)
 
 ---
 
