@@ -1,4 +1,4 @@
-# Client Recommendations
+# Client Recommendations & Decision Matrix
 
 ## Client Recommendations
 
@@ -17,7 +17,13 @@
 * **Justification:** GCP offers specialized hardware such as Cloud TPUs alongside software frameworks like Vertex AI and TensorFlow for advanced machine learning workflows. Its high-performance computing capabilities handle massive ML model training efficient, cost-effectively. Furthermore, Google Cloud leads the industry in data pipelines and big data analytics tooling.
 * **Suggested Services:** Compute Engine (GPU instances), Vertex AI, Google Cloud Storage.
 
-------
+### Client D - Global E-Commerce Company
+* **Recommended Platform:** AWS (Amazon Web Services)
+* **Justification:** AWS maintains a massive global network footprint with 100+ Availability Zones, delivering reliable low-latency access to customers around the world. Built-in features like Auto Scaling and Elastic Load Balancing ensure seamless handling of dynamic traffic bursts during peak sales events. Additionally, AWS provides robust multi-region database replication options to maintain continuous uptime.
+* **Suggested Services:** Amazon Route 53, Elastic Load Balancing (ELB), Amazon DynamoDB.
+
+---
+
 ## Multi-Cloud Decision Matrix
 
 | Business Requirement | Recommended Platform | Justification |
@@ -28,8 +34,3 @@
 | **AI / Machine Learning** | GCP | Superior AI/ML tools, custom TPU hardware, and Vertex AI framework. |
 | **Kubernetes Deployment** | GCP | Google created Kubernetes; GKE is the most mature managed solution. |
 | **Global Web Application** | AWS | Extensive global availability zones and low-latency edge networks. |
-
-### Client D - Global E-Commerce Company
-* **Recommended Platform:** AWS (Amazon Web Services)
-* **Justification:** AWS maintains a massive global network footprint with 100+ Availability Zones, delivering reliable low-latency access to customers around the world. Built-in features like Auto Scaling and Elastic Load Balancing ensure seamless handling of dynamic traffic bursts during peak sales events. Additionally, AWS provides robust multi-region database replication options to maintain continuous uptime.
-* **Suggested Services:** Amazon Route 53, Elastic Load Balancing (ELB), Amazon DynamoDB.
