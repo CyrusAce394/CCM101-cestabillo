@@ -15,19 +15,19 @@ This activity focused on deploying Nextcloud and MariaDB using Docker Compose. T
 ## Commands Executed
 
 -bash
-mkdir nextcloud-deployment
-cd nextcloud-deployment
-nano docker-compose.yml
-cat docker-compose.yml
-docker-compose up -d
-docker-compose ps
-docker-compose down
+mkdir nextcloud-deployment,
+cd nextcloud-deployment,
+nano docker-compose.yml,
+cat docker-compose.yml,
+docker-compose up -d,
+docker-compose ps,
+docker-compose down,
 
 ## Skills Learned
-Docker Compose
-YAML configuration
-Multi-tier architecture
-Container deployment
-Linux command-line operations
-Infrastructure as Code
-Technical documentation
+Docker Compose,
+YAML configuration,
+Multi-tier architecture,
+Container deployment,
+Linux command-line operations,
+Infrastructure as Code,
+Technical documentation,
