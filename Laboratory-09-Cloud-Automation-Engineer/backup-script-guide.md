@@ -1,26 +1,30 @@
 
-# Automated Backup Script Guide
+# Laboratory 09 - Backup Script Guide
 
 ## Mission 9: The Cloud Automation Engineer
 
 ### Introduction
 
-This activity demonstrates how to automate file backups using a Bash script and schedule the process using Linux Cron. The purpose is to reduce manual work and prevent data loss by creating compressed backup files.
+This laboratory activity focuses on creating an automated backup system using Bash scripting and Linux Cron. The purpose is to reduce manual tasks, prevent data loss, and improve the efficiency of cloud operations.
 
 ## 1. Creating the Application Data
 
-The following commands were used to create a sample application folder and a test file:
+The following commands were used to create a sample directory and test file:
 
 ```bash
 mkdir app-data
 echo "This is critical client data." > app-data/data.txt
 ```
 
-The `app-data` directory represents the client's application data, while `data.txt` contains sample information that needs to be backed up.
+The `app-data` directory represents the client's application data, while `data.txt` contains the sample information that needs to be backed up.
 
 ## 2. Creating the Backup Script
 
-The following Bash script creates a compressed backup of the application data and includes a timestamp in the backup filename.
+The backup script was created using the nano text editor:
+
+```bash
+nano backup.sh
+```
 
 ### Full Bash Script
 
@@ -28,71 +32,81 @@ The following Bash script creates a compressed backup of the application data an
 #!/bin/bash
 # Automated Backup Script for CloudNova Technologies
 
-cd /root || exit 1
-
 SOURCE_DIR="app-data"
 BACKUP_DIR="backups"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
 echo "Initiating automated backup..."
 
-mkdir -p "$BACKUP_DIR"
+# Create the backup directory if it does not exist
+mkdir -p $BACKUP_DIR
 
-if tar -czf "$BACKUP_DIR/backup_$TIMESTAMP.tar.gz" "$SOURCE_DIR"; then
-    echo "Backup completed successfully at $TIMESTAMP!"
-else
-    echo "Backup failed!"
-    exit 1
-fi
+# Compress the source directory into a tarball (.tar.gz)
+tar -czf $BACKUP_DIR/backup_$TIMESTAMP.tar.gz $SOURCE_DIR
+
+echo "Backup completed successfully at $TIMESTAMP!"
 ```
 
-## 3. Explanation of the Script
+## 3. Explanation of the Bash Script
 
-- `#!/bin/bash` tells the system to execute the script using Bash.
-- `cd /root || exit 1` sets the working directory and stops execution if the directory cannot be accessed.
-- `SOURCE_DIR` identifies the folder containing the application data.
-- `BACKUP_DIR` identifies where backup files will be stored.
-- `TIMESTAMP` generates a unique date and time value.
-- `echo` displays status messages in the terminal.
-- `mkdir -p` creates the backup directory if it does not exist.
-- `tar -czf` compresses the source directory into a `.tar.gz` archive.
-- The `if` statement checks whether the backup command succeeded.
+- `#!/bin/bash` specifies that the script uses the Bash interpreter.
+- `SOURCE_DIR` identifies the source directory containing the application data.
+- `BACKUP_DIR` identifies the destination directory for backup files.
+- `TIMESTAMP` generates the current date and time to create a unique backup filename.
+- `echo` displays messages in the terminal.
+- `mkdir -p` creates the backup directory if it does not already exist.
+- `tar -czf` compresses the source directory into a `.tar.gz` file.
 
 ## 4. File Permissions and Execution
 
-Initially, the script did not have executable permission.
+Initially, the Bash script could not be executed because it did not have executable permission.
 
-The following command was used to grant execution permission:
+The following command was used to grant executable permission:
 
 ```bash
 chmod +x backup.sh
 ```
 
-The `chmod` command modifies file permissions, while `+x` adds executable permission. This allows Linux to run the script directly as a program.
+The `chmod` command changes file permissions in Linux, while `+x` adds executable permission. This allows the script to be executed directly from the terminal.
 
-After granting permission, the script was executed using:
+After modifying the permissions, the script was executed using:
 
 ```bash
 ./backup.sh
 ```
 
-The backup directory and compressed file were verified using:
+The terminal displayed the following messages:
+
+```text
+Initiating automated backup...
+Backup completed successfully at 20261015_140403!
+```
+
+The generated backup file was verified using:
 
 ```bash
 ls -l backups/
 ```
 
+The backup was successfully created as a compressed `.tar.gz` file.
+
 ## 5. Scheduling the Cron Job
 
-Linux Cron was used to schedule the backup process automatically.
+Linux Cron was used to schedule the Bash script to run automatically every day at 2:00 AM.
 
-The Cron editor was opened using:
+First, the existing Cron jobs were checked using:
+
+```bash
+crontab -l
+```
+
+Next, the Cron editor was opened using:
 
 ```bash
 env EDITOR=nano crontab -e
 ```
 
-The following schedule was added:
+The following Cron expression was added:
 
 ```cron
 0 2 * * * /root/backup.sh
@@ -100,19 +114,20 @@ The following schedule was added:
 
 ### Explanation of the Cron Expression
 
-| Field | Value | Explanation |
+| Field | Value | Description |
 |---|---|---|
-| Minute | 0 | Run at minute 0 |
-| Hour | 2 | Run at 2 AM |
-| Day of Month | * | Every day of the month |
-| Month | * | Every month |
-| Day of Week | * | Every day of the week |
+| Minute | 0 | Executes at minute 0 |
+| Hour | 2 | Executes at 2:00 AM |
+| Day of Month | * | Executes every day of the month |
+| Month | * | Executes every month |
+| Day of Week | * | Executes every day of the week |
 
-This schedule runs the backup script every day at 2:00 AM based on the Linux system's timezone.
+The Cron expression schedules the backup script to execute daily at 2:00 AM according to the Linux system's timezone.
 
 The installed Cron job was verified using:
 
 ```bash
 crontab -l
+```
 
-
+The output confirmed that the schedule had been installed successfully.
